@@ -36,7 +36,7 @@ resource "azurerm_container_registry" "ommichelsen-cr" {
   name                = "myblogregistry"
   resource_group_name = azurerm_resource_group.ommichelsen-rg.name
   sku                 = "Basic"
-  admin_enabled = true
+  admin_enabled       = true
 }
 
 resource "azurerm_dns_zone" "ommichelsen-dz" {
@@ -94,12 +94,12 @@ resource "azurerm_linux_web_app" "ommichelsen-wa" {
     XDT_MicrosoftApplicationInsights_Mode           = "recommended"
     XDT_MicrosoftApplicationInsights_PreemptSdk     = "disabled"
   }
-  client_certificate_mode       = "OptionalInteractiveUser"
-  https_only                    = true
-  location                      = azurerm_resource_group.ommichelsen-rg.location
-  name                          = "michelsen-blog"
-  resource_group_name           = azurerm_resource_group.ommichelsen-rg.name
-  service_plan_id               = azurerm_service_plan.ommichelsen-sp.id
+  client_certificate_mode = "OptionalInteractiveUser"
+  https_only              = true
+  location                = azurerm_resource_group.ommichelsen-rg.location
+  name                    = "michelsen-blog"
+  resource_group_name     = azurerm_resource_group.ommichelsen-rg.name
+  service_plan_id         = azurerm_service_plan.ommichelsen-sp.id
   identity {
     type = "SystemAssigned"
   }
