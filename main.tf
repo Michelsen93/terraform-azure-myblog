@@ -70,14 +70,6 @@ resource "azurerm_service_plan" "ommichelsen-sp" {
   sku_name            = "B1"
 }
 
-resource "azurerm_service_plan" "win11-sp" {
-  location            = azurerm_resource_group.ommichelsen-rg.location
-  name                = "ASP-ommichelsen-f8b2"
-  os_type             = "Windows"
-  resource_group_name = azurerm_resource_group.ommichelsen-rg.name
-  sku_name            = "Y1"
-}
-
 resource "azurerm_linux_web_app" "ommichelsen-wa" {
   app_settings = {
     APPINSIGHTS_INSTRUMENTATIONKEY                  = var.my_blog_instrumentation_key
@@ -136,5 +128,5 @@ resource "azurerm_application_insights" "ommichelsen-ai" {
   location            = azurerm_resource_group.ommichelsen-rg.location
   name                = "michelsen-blog"
   resource_group_name = azurerm_resource_group.ommichelsen-rg.name
-  sampling_percentage = 0
+  sampling_percentage = 10
 }
