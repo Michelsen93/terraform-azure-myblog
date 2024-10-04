@@ -9,28 +9,6 @@ resource "azurerm_resource_group" "ommichelsen-rg" {
   location = "norwayeast"
 }
 
-resource "azurerm_container_group" "ommichelsen-cg" {
-  dns_name_label      = "ommichelsen6"
-  location            = azurerm_resource_group.ommichelsen-rg.location
-  name                = "my-blog"
-  os_type             = "Linux"
-  resource_group_name = azurerm_resource_group.ommichelsen-rg.name
-  container {
-    cpu    = 1
-    image  = "myblogregistry.azurecr.io/my-blog:${var.image_tag}"
-    memory = 1.5
-    name   = "my-blog"
-    ports {
-      port = 80
-    }
-  }
-  image_registry_credential {
-    server   = "myblogregistry.azurecr.io"
-    username = var.registry_username
-    password = var.registry_password
-  }
-}
-
 resource "azurerm_container_registry" "ommichelsen-cr" {
   location            = azurerm_resource_group.ommichelsen-rg.location
   name                = "myblogregistry"
