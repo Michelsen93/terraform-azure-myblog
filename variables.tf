@@ -48,3 +48,26 @@ variable "storage_account_key" {
   type        = string
   sensitive   = true
 }
+
+variable "pg_flex_username" {
+  description = "username PG database"
+  type        = string
+  sensitive   = true
+}
+
+variable "pg_flex_password" {
+
+  description = "password PG database"
+  type        = string
+  sensitive   = true
+}
+
+variable "aks_config" {
+  type = object({
+    user_spot_pool_availability_zones   = list(string)
+    user_spot_pool_size_min_count       = number
+    user_spot_pool_size_max_count       = number
+    user_spot_pool_orchestrator_version = string
+    user_spot_pool_vm_size              = string
+  })
+}
