@@ -20,13 +20,3 @@ variable "pg_flex_password" {
   type        = string
   sensitive   = true
 }
-
-variable "subnet_id" {
-  description = "subnet id"
-  type        = string
-}
-
-variable "dns_zone_id" {
-  description = "private dns zone"
-  type        = string
-}

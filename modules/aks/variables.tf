@@ -12,7 +12,3 @@ variable "dns_prefix" {
     type = string
 }
 
-variable "subnet_id" {
-  description = "subnet"
-  type = string
-}

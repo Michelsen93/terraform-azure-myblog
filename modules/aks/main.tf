@@ -10,13 +10,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     node_count                  = 3
     vm_size                     = "Standard_B2s"
     temporary_name_for_rotation = "rotated"
-    vnet_subnet_id = var.subnet_id
   }
 
   network_profile {
     network_plugin = "azure"
-    network_policy = "azure"
   }
+  
 
   identity {
     type = "SystemAssigned"

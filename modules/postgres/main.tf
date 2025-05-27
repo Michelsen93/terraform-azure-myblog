@@ -12,8 +12,6 @@ resource "azurerm_postgresql_flexible_server" "pg" {
     active_directory_auth_enabled = false
     password_auth_enabled         = true
   }
-  delegated_subnet_id = var.subnet_id
-  private_dns_zone_id = var.dns_zone_id
 }
 
 resource "azurerm_postgresql_flexible_server_database" "counterdb" {
